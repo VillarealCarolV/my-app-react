@@ -4,7 +4,7 @@ const app = express();
 const port = 5000; 
 
 app.get("/", (req, res) => {
-    res.send('Hello World! Current port is ${port}');
+    res.send(`Hello World! Current port is ${port}`);
 });
 
 // app.post(arg1, arg2);
@@ -17,6 +17,16 @@ res.send('Hello hello, my friend');
 console.log('Response sent..');
 })
 
-app.listen(port, () =>{
-    console.log('Trial-API listening on port ${port} was started successfuly.');
+let count = 0;
+app.post("/counter", (req, res)=> {
+    ++count;
+    res.send(`Current counter is ${count}.`)
 });
+
+app.listen(port, () =>{
+    console.log(`Trial-API listening on port ${port} was started successfuly.`);
+});
+
+// localhost
+// 127.0.0.1
+// ::1
